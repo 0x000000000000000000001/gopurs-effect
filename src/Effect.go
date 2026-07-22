@@ -22,7 +22,7 @@ var UntilE = gopurs_runtime.Func(func(f gopurs_runtime.Value) gopurs_runtime.Val
 	return gopurs_runtime.Func(func(_ gopurs_runtime.Value) gopurs_runtime.Value {
 		for {
 			res := gopurs_runtime.Apply(f, gopurs_runtime.Value{})
-			if res.BoolVal {
+			if res.IntVal != 0 {
 				break
 			}
 		}
@@ -35,7 +35,7 @@ var WhileE = gopurs_runtime.Func(func(f gopurs_runtime.Value) gopurs_runtime.Val
 		return gopurs_runtime.Func(func(_ gopurs_runtime.Value) gopurs_runtime.Value {
 			for {
 				res := gopurs_runtime.Apply(f, gopurs_runtime.Value{})
-				if !res.BoolVal {
+				if res.IntVal == 0 {
 					break
 				}
 				gopurs_runtime.Apply(a, gopurs_runtime.Value{})
@@ -52,7 +52,7 @@ var ForE = gopurs_runtime.Func(func(lo gopurs_runtime.Value) gopurs_runtime.Valu
 				loInt := lo.IntVal
 				hiInt := hi.IntVal
 				for i := loInt; i < hiInt; i++ {
-					thunk := gopurs_runtime.Apply(f, gopurs_runtime.Int(i))
+					thunk := gopurs_runtime.Apply(f, gopurs_runtime.Int(int(i)))
 					gopurs_runtime.Apply(thunk, gopurs_runtime.Value{})
 				}
 				return gopurs_runtime.Value{}
@@ -64,7 +64,7 @@ var ForE = gopurs_runtime.Func(func(lo gopurs_runtime.Value) gopurs_runtime.Valu
 var ForeachE = gopurs_runtime.Func(func(as gopurs_runtime.Value) gopurs_runtime.Value {
 	return gopurs_runtime.Func(func(f gopurs_runtime.Value) gopurs_runtime.Value {
 		return gopurs_runtime.Func(func(_ gopurs_runtime.Value) gopurs_runtime.Value {
-			arr := as.ArrayVal
+			arr := as.PtrVal.([]gopurs_runtime.Value)
 			for _, v := range arr {
 				thunk := gopurs_runtime.Apply(f, v)
 				gopurs_runtime.Apply(thunk, gopurs_runtime.Value{})
