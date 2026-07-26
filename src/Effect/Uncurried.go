@@ -1,122 +1,121 @@
-import "gopurs/output/gopurs_runtime"
 
-func MkEffectFn1(f gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-	return func(a gopurs_runtime.Value) func() gopurs_runtime.Value {
-		return func() gopurs_runtime.Value {
-			return gopurs_runtime.Apply(f, a)
+func MkEffectFn1(f interface{}) func(interface{}) func() interface{} {
+	return func(a interface{}) func() interface{} {
+		return func() interface{} {
+			return f.(func(interface{}) interface{})(a)
 		}
 	}
 }
 
-func MkEffectFn2(f gopurs_runtime.Value) func(gopurs_runtime.Value, gopurs_runtime.Value) func() gopurs_runtime.Value {
-	return func(a, b gopurs_runtime.Value) func() gopurs_runtime.Value {
-		return func() gopurs_runtime.Value {
-			return gopurs_runtime.Apply(gopurs_runtime.Apply(f, a), b)
+func MkEffectFn2(f interface{}) func(interface{}, interface{}) func() interface{} {
+	return func(a, b interface{}) func() interface{} {
+		return func() interface{} {
+			return f.(func(interface{}) interface{})(a).(func(interface{}) interface{})(b)
 		}
 	}
 }
 
-func MkEffectFn3(f gopurs_runtime.Value) func(gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value) func() gopurs_runtime.Value {
-	return func(a, b, c gopurs_runtime.Value) func() gopurs_runtime.Value {
-		return func() gopurs_runtime.Value {
-			return gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(f, a), b), c)
+func MkEffectFn3(f interface{}) func(interface{}, interface{}, interface{}) func() interface{} {
+	return func(a, b, c interface{}) func() interface{} {
+		return func() interface{} {
+			return f.(func(interface{}) interface{})(a).(func(interface{}) interface{})(b).(func(interface{}) interface{})(c)
 		}
 	}
 }
 
-func MkEffectFn4(f gopurs_runtime.Value) func(gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value) func() gopurs_runtime.Value {
-	return func(a, b, c, d gopurs_runtime.Value) func() gopurs_runtime.Value {
-		return func() gopurs_runtime.Value {
-			return gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(f, a), b), c), d)
+func MkEffectFn4(f interface{}) func(interface{}, interface{}, interface{}, interface{}) func() interface{} {
+	return func(a, b, c, d interface{}) func() interface{} {
+		return func() interface{} {
+			return f.(func(interface{}) interface{})(a).(func(interface{}) interface{})(b).(func(interface{}) interface{})(c).(func(interface{}) interface{})(d)
 		}
 	}
 }
 
-func MkEffectFn5(f gopurs_runtime.Value) func(gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value) func() gopurs_runtime.Value {
-	return func(a, b, c, d, e gopurs_runtime.Value) func() gopurs_runtime.Value {
-		return func() gopurs_runtime.Value {
-			return gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(f, a), b), c), d), e)
+func MkEffectFn5(f interface{}) func(interface{}, interface{}, interface{}, interface{}, interface{}) func() interface{} {
+	return func(a, b, c, d, e interface{}) func() interface{} {
+		return func() interface{} {
+			return f.(func(interface{}) interface{})(a).(func(interface{}) interface{})(b).(func(interface{}) interface{})(c).(func(interface{}) interface{})(d).(func(interface{}) interface{})(e)
 		}
 	}
 }
 
-func MkEffectFn6(f gopurs_runtime.Value) func(gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value) func() gopurs_runtime.Value {
-	return func(a, b, c, d, e, g gopurs_runtime.Value) func() gopurs_runtime.Value {
-		return func() gopurs_runtime.Value {
-			return gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(f, a), b), c), d), e), g)
+func MkEffectFn6(f interface{}) func(interface{}, interface{}, interface{}, interface{}, interface{}, interface{}) func() interface{} {
+	return func(a, b, c, d, e, g interface{}) func() interface{} {
+		return func() interface{} {
+			return f.(func(interface{}) interface{})(a).(func(interface{}) interface{})(b).(func(interface{}) interface{})(c).(func(interface{}) interface{})(d).(func(interface{}) interface{})(e).(func(interface{}) interface{})(g)
 		}
 	}
 }
 
-func MkEffectFn7(f gopurs_runtime.Value) func(gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value) func() gopurs_runtime.Value {
-	return func(a, b, c, d, e, g, h gopurs_runtime.Value) func() gopurs_runtime.Value {
-		return func() gopurs_runtime.Value {
-			return gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(f, a), b), c), d), e), g), h)
+func MkEffectFn7(f interface{}) func(interface{}, interface{}, interface{}, interface{}, interface{}, interface{}, interface{}) func() interface{} {
+	return func(a, b, c, d, e, g, h interface{}) func() interface{} {
+		return func() interface{} {
+			return f.(func(interface{}) interface{})(a).(func(interface{}) interface{})(b).(func(interface{}) interface{})(c).(func(interface{}) interface{})(d).(func(interface{}) interface{})(e).(func(interface{}) interface{})(g).(func(interface{}) interface{})(h)
 		}
 	}
 }
 
-func MkEffectFn8(f gopurs_runtime.Value) func(gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value) func() gopurs_runtime.Value {
-	return func(a, b, c, d, e, g, h, i gopurs_runtime.Value) func() gopurs_runtime.Value {
-		return func() gopurs_runtime.Value {
-			return gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(f, a), b), c), d), e), g), h), i)
+func MkEffectFn8(f interface{}) func(interface{}, interface{}, interface{}, interface{}, interface{}, interface{}, interface{}, interface{}) func() interface{} {
+	return func(a, b, c, d, e, g, h, i interface{}) func() interface{} {
+		return func() interface{} {
+			return f.(func(interface{}) interface{})(a).(func(interface{}) interface{})(b).(func(interface{}) interface{})(c).(func(interface{}) interface{})(d).(func(interface{}) interface{})(e).(func(interface{}) interface{})(g).(func(interface{}) interface{})(h).(func(interface{}) interface{})(i)
 		}
 	}
 }
 
-func MkEffectFn9(f gopurs_runtime.Value) func(gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value) func() gopurs_runtime.Value {
-	return func(a, b, c, d, e, g, h, i, j gopurs_runtime.Value) func() gopurs_runtime.Value {
-		return func() gopurs_runtime.Value {
-			return gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(f, a), b), c), d), e), g), h), i), j)
+func MkEffectFn9(f interface{}) func(interface{}, interface{}, interface{}, interface{}, interface{}, interface{}, interface{}, interface{}, interface{}) func() interface{} {
+	return func(a, b, c, d, e, g, h, i, j interface{}) func() interface{} {
+		return func() interface{} {
+			return f.(func(interface{}) interface{})(a).(func(interface{}) interface{})(b).(func(interface{}) interface{})(c).(func(interface{}) interface{})(d).(func(interface{}) interface{})(e).(func(interface{}) interface{})(g).(func(interface{}) interface{})(h).(func(interface{}) interface{})(i).(func(interface{}) interface{})(j)
 		}
 	}
 }
 
-func MkEffectFn10(f gopurs_runtime.Value) func(gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value, gopurs_runtime.Value) func() gopurs_runtime.Value {
-	return func(a, b, c, d, e, g, h, i, j, k gopurs_runtime.Value) func() gopurs_runtime.Value {
-		return func() gopurs_runtime.Value {
-			return gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(gopurs_runtime.Apply(f, a), b), c), d), e), g), h), i), j), k)
+func MkEffectFn10(f interface{}) func(interface{}, interface{}, interface{}, interface{}, interface{}, interface{}, interface{}, interface{}, interface{}, interface{}) func() interface{} {
+	return func(a, b, c, d, e, g, h, i, j, k interface{}) func() interface{} {
+		return func() interface{} {
+			return f.(func(interface{}) interface{})(a).(func(interface{}) interface{})(b).(func(interface{}) interface{})(c).(func(interface{}) interface{})(d).(func(interface{}) interface{})(e).(func(interface{}) interface{})(g).(func(interface{}) interface{})(h).(func(interface{}) interface{})(i).(func(interface{}) interface{})(j).(func(interface{}) interface{})(k)
 		}
 	}
 }
 
-func RunEffectFn1(f gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-	return func(a gopurs_runtime.Value) func() gopurs_runtime.Value {
-		return func() gopurs_runtime.Value {
-			return f.PtrVal.(func(gopurs_runtime.Value) gopurs_runtime.Value)(a)
+func RunEffectFn1(f interface{}) func(interface{}) func() interface{} {
+	return func(a interface{}) func() interface{} {
+		return func() interface{} {
+			return f.(func(interface{}) interface{})(a)
 		}
 	}
 }
 
-func RunEffectFn2(f gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-	return func(a gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-		return func(b gopurs_runtime.Value) func() gopurs_runtime.Value {
-			return func() gopurs_runtime.Value {
-				return f.PtrVal.(func(gopurs_runtime.Value) gopurs_runtime.Value)(a, b)
+func RunEffectFn2(f interface{}) func(interface{}) func(interface{}) func() interface{} {
+	return func(a interface{}) func(interface{}) func() interface{} {
+		return func(b interface{}) func() interface{} {
+			return func() interface{} {
+				return f.(func(interface{}) interface{})(a, b)
 			}
 		}
 	}
 }
 
-func RunEffectFn3(f gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-	return func(a gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-		return func(b gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-			return func(c gopurs_runtime.Value) func() gopurs_runtime.Value {
-				return func() gopurs_runtime.Value {
-					return f.PtrVal.(func(gopurs_runtime.Value) gopurs_runtime.Value)(a, b, c)
+func RunEffectFn3(f interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+	return func(a interface{}) func(interface{}) func(interface{}) func() interface{} {
+		return func(b interface{}) func(interface{}) func() interface{} {
+			return func(c interface{}) func() interface{} {
+				return func() interface{} {
+					return f.(func(interface{}) interface{})(a, b, c)
 				}
 			}
 		}
 	}
 }
 
-func RunEffectFn4(f gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-	return func(a gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-		return func(b gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-			return func(c gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-				return func(d gopurs_runtime.Value) func() gopurs_runtime.Value {
-					return func() gopurs_runtime.Value {
-						return f.PtrVal.(func(gopurs_runtime.Value) gopurs_runtime.Value)(a, b, c, d)
+func RunEffectFn4(f interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+	return func(a interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+		return func(b interface{}) func(interface{}) func(interface{}) func() interface{} {
+			return func(c interface{}) func(interface{}) func() interface{} {
+				return func(d interface{}) func() interface{} {
+					return func() interface{} {
+						return f.(func(interface{}) interface{})(a, b, c, d)
 					}
 				}
 			}
@@ -124,14 +123,14 @@ func RunEffectFn4(f gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs
 	}
 }
 
-func RunEffectFn5(f gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-	return func(a gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-		return func(b gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-			return func(c gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-				return func(d gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-					return func(e gopurs_runtime.Value) func() gopurs_runtime.Value {
-						return func() gopurs_runtime.Value {
-							return f.PtrVal.(func(gopurs_runtime.Value) gopurs_runtime.Value)(a, b, c, d, e)
+func RunEffectFn5(f interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+	return func(a interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+		return func(b interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+			return func(c interface{}) func(interface{}) func(interface{}) func() interface{} {
+				return func(d interface{}) func(interface{}) func() interface{} {
+					return func(e interface{}) func() interface{} {
+						return func() interface{} {
+							return f.(func(interface{}) interface{})(a, b, c, d, e)
 						}
 					}
 				}
@@ -140,17 +139,17 @@ func RunEffectFn5(f gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs
 	}
 }
 
-func RunEffectFn6(f gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-	return func(a gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-		return func(b gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-			return func(c gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-				return func(d gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-					return func(e gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-						return func(g gopurs_runtime.Value) func() gopurs_runtime.Value {
-							return func() gopurs_runtime.Value {
-								var args []gopurs_runtime.Value
+func RunEffectFn6(f interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+	return func(a interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+		return func(b interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+			return func(c interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+				return func(d interface{}) func(interface{}) func(interface{}) func() interface{} {
+					return func(e interface{}) func(interface{}) func() interface{} {
+						return func(g interface{}) func() interface{} {
+							return func() interface{} {
+								var args []interface{}
 								args = append(args, a, b, c, d, e, g)
-								return f.PtrVal.(func(gopurs_runtime.Value) gopurs_runtime.Value)(args)
+								return f.(func(interface{}) interface{})(args)
 							}
 						}
 					}
@@ -160,18 +159,18 @@ func RunEffectFn6(f gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs
 	}
 }
 
-func RunEffectFn7(f gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-	return func(a gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-		return func(b gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-			return func(c gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-				return func(d gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-					return func(e gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-						return func(g gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-							return func(h gopurs_runtime.Value) func() gopurs_runtime.Value {
-								return func() gopurs_runtime.Value {
-									var args []gopurs_runtime.Value
+func RunEffectFn7(f interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+	return func(a interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+		return func(b interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+			return func(c interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+				return func(d interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+					return func(e interface{}) func(interface{}) func(interface{}) func() interface{} {
+						return func(g interface{}) func(interface{}) func() interface{} {
+							return func(h interface{}) func() interface{} {
+								return func() interface{} {
+									var args []interface{}
 									args = append(args, a, b, c, d, e, g, h)
-									return f.PtrVal.(func(gopurs_runtime.Value) gopurs_runtime.Value)(args)
+									return f.(func(interface{}) interface{})(args)
 								}
 							}
 						}
@@ -182,19 +181,19 @@ func RunEffectFn7(f gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs
 	}
 }
 
-func RunEffectFn8(f gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-	return func(a gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-		return func(b gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-			return func(c gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-				return func(d gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-					return func(e gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-						return func(g gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-							return func(h gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-								return func(i gopurs_runtime.Value) func() gopurs_runtime.Value {
-									return func() gopurs_runtime.Value {
-										var args []gopurs_runtime.Value
+func RunEffectFn8(f interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+	return func(a interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+		return func(b interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+			return func(c interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+				return func(d interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+					return func(e interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+						return func(g interface{}) func(interface{}) func(interface{}) func() interface{} {
+							return func(h interface{}) func(interface{}) func() interface{} {
+								return func(i interface{}) func() interface{} {
+									return func() interface{} {
+										var args []interface{}
 										args = append(args, a, b, c, d, e, g, h, i)
-										return f.PtrVal.(func(gopurs_runtime.Value) gopurs_runtime.Value)(args)
+										return f.(func(interface{}) interface{})(args)
 									}
 								}
 							}
@@ -206,20 +205,20 @@ func RunEffectFn8(f gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs
 	}
 }
 
-func RunEffectFn9(f gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-	return func(a gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-		return func(b gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-			return func(c gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-				return func(d gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-					return func(e gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-						return func(g gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-							return func(h gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-								return func(i gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-									return func(j gopurs_runtime.Value) func() gopurs_runtime.Value {
-										return func() gopurs_runtime.Value {
-											var args []gopurs_runtime.Value
+func RunEffectFn9(f interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+	return func(a interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+		return func(b interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+			return func(c interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+				return func(d interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+					return func(e interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+						return func(g interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+							return func(h interface{}) func(interface{}) func(interface{}) func() interface{} {
+								return func(i interface{}) func(interface{}) func() interface{} {
+									return func(j interface{}) func() interface{} {
+										return func() interface{} {
+											var args []interface{}
 											args = append(args, a, b, c, d, e, g, h, i, j)
-											return f.PtrVal.(func(gopurs_runtime.Value) gopurs_runtime.Value)(args)
+											return f.(func(interface{}) interface{})(args)
 										}
 									}
 								}
@@ -232,21 +231,21 @@ func RunEffectFn9(f gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs
 	}
 }
 
-func RunEffectFn10(f gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-	return func(a gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-		return func(b gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-			return func(c gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-				return func(d gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-					return func(e gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-						return func(g gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-							return func(h gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-								return func(i gopurs_runtime.Value) func(gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-									return func(j gopurs_runtime.Value) func(gopurs_runtime.Value) func() gopurs_runtime.Value {
-										return func(k gopurs_runtime.Value) func() gopurs_runtime.Value {
-											return func() gopurs_runtime.Value {
-												var args []gopurs_runtime.Value
+func RunEffectFn10(f interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+	return func(a interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+		return func(b interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+			return func(c interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+				return func(d interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+					return func(e interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+						return func(g interface{}) func(interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+							return func(h interface{}) func(interface{}) func(interface{}) func(interface{}) func() interface{} {
+								return func(i interface{}) func(interface{}) func(interface{}) func() interface{} {
+									return func(j interface{}) func(interface{}) func() interface{} {
+										return func(k interface{}) func() interface{} {
+											return func() interface{} {
+												var args []interface{}
 												args = append(args, a, b, c, d, e, g, h, i, j, k)
-												return f.PtrVal.(func(gopurs_runtime.Value) gopurs_runtime.Value)(args)
+												return f.(func(interface{}) interface{})(args)
 											}
 										}
 									}

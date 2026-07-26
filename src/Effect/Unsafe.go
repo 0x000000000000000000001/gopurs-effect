@@ -1,1 +1,1 @@
-func UnsafePerformEffect(f func() any) any { return f() }
+func UnsafePerformEffect(f func() interface{}) interface{} { return f() }

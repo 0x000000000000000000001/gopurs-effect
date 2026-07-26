@@ -1,20 +1,20 @@
 
 
-func PureE(a any) func() any {
-	return func() any {
+func PureE(a interface{}) func() interface{} {
+	return func() interface{} {
 		return a
 	}
 }
 
-func BindE(a func() any, f func(any) func() any) func() any {
-	return func() any {
+func BindE(a func() interface{}, f func(interface{}) func() interface{}) func() interface{} {
+	return func() interface{} {
 		resA := a()
 		return f(resA)()
 	}
 }
 
-func UntilE(f func() bool) func() any {
-	return func() any {
+func UntilE(f func() bool) func() interface{} {
+	return func() interface{} {
 		for {
 			if f() {
 				break
@@ -24,8 +24,8 @@ func UntilE(f func() bool) func() any {
 	}
 }
 
-func WhileE(f func() bool, a func() any) func() any {
-	return func() any {
+func WhileE(f func() bool, a func() interface{}) func() interface{} {
+	return func() interface{} {
 		for {
 			if !f() {
 				break
@@ -36,8 +36,8 @@ func WhileE(f func() bool, a func() any) func() any {
 	}
 }
 
-func ForE(lo int, hi int, f func(int) func() any) func() any {
-	return func() any {
+func ForE(lo int, hi int, f func(int) func() interface{}) func() interface{} {
+	return func() interface{} {
 		for i := lo; i < hi; i++ {
 			f(i)()
 		}
@@ -45,8 +45,8 @@ func ForE(lo int, hi int, f func(int) func() any) func() any {
 	}
 }
 
-func ForeachE(as []any, f func(any) func() any) func() any {
-	return func() any {
+func ForeachE(as []interface{}, f func(interface{}) func() interface{}) func() interface{} {
+	return func() interface{} {
 		for _, v := range as {
 			f(v)()
 		}
