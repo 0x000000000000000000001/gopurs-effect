@@ -1,33 +1,30 @@
+package Effect
 
-
-func PureE(a interface{}) func() interface{} {
-	return func() interface{} {
+func PureE(a any) func() any {
+	return func() any {
 		return a
 	}
 }
-
-func BindE(a func() interface{}, f func(interface{}) func() interface{}) func() interface{} {
-	return func() interface{} {
+func BindE(a func() any, f func(any) func() any) func() any {
+	return func() any {
 		resA := a()
 		return f(resA)()
 	}
 }
-
-func UntilE(f func() bool) func() interface{} {
-	return func() interface{} {
+func UntilE(f func() any) func() any {
+	return func() any {
 		for {
-			if f() {
+			if f().(bool) {
 				break
 			}
 		}
 		return nil
 	}
 }
-
-func WhileE(f func() bool, a func() interface{}) func() interface{} {
-	return func() interface{} {
+func WhileE(f func() any, a func() any) func() any {
+	return func() any {
 		for {
-			if !f() {
+			if !f().(bool) {
 				break
 			}
 			a()
@@ -35,20 +32,18 @@ func WhileE(f func() bool, a func() interface{}) func() interface{} {
 		return nil
 	}
 }
-
-func ForE(lo int, hi int, f func(int) func() interface{}) func() interface{} {
-	return func() interface{} {
+func ForE(lo int64, hi int64, f func(any) func() any) func() any {
+	return func() any {
 		for i := lo; i < hi; i++ {
 			f(i)()
 		}
 		return nil
 	}
 }
-
-func ForeachE(as []interface{}, f func(interface{}) func() interface{}) func() interface{} {
-	return func() interface{} {
-		for _, v := range as {
-			f(v)()
+func ForeachE(as []any, f func(any) func() any) func() any {
+	return func() any {
+		for _, a := range as {
+			f(a)()
 		}
 		return nil
 	}
