@@ -1,0 +1,222 @@
+=== Building project with spago ===
+Reading Spago workspace configuration...
+
+✓ Selecting package to build: effect
+
+Downloading dependencies...
+Building...
+[ 1 of 60] Compiling Type.Proxy
+[ 2 of 60] Compiling Data.Unit
+[ 3 of 60] Compiling Data.Void
+[ 4 of 60] Compiling Record.Unsafe
+[ 5 of 60] Compiling Spago.Generated.BuildInfo
+[ 6 of 60] Compiling Data.NaturalTransformation
+[ 7 of 60] Compiling Data.Boolean
+[ 8 of 60] Compiling Control.Semigroupoid
+[ 9 of 60] Compiling Data.Symbol
+[10 of 60] Compiling Control.Category
+[11 of 60] Compiling Data.HeytingAlgebra
+[12 of 60] Compiling Data.Semigroup
+[13 of 60] Compiling Data.Semiring
+[14 of 60] Compiling Data.Show
+[15 of 60] Compiling Data.Ring
+[16 of 60] Compiling Data.Generic.Rep
+[18 of 60] Compiling Data.BooleanAlgebra
+[17 of 60] Compiling Data.Eq
+[19 of 60] Compiling Data.CommutativeRing
+[20 of 60] Compiling Data.Ordering
+[21 of 60] Compiling Data.EuclideanRing
+[22 of 60] Compiling Data.Ord
+[23 of 60] Compiling Data.DivisionRing
+[24 of 60] Compiling Data.Field
+[25 of 60] Compiling Data.Reflectable
+[27 of 60] Compiling Data.Bounded
+[26 of 60] Compiling Data.Function
+[28 of 60] Compiling Data.Monoid
+[29 of 60] Compiling Data.Functor
+[30 of 60] Compiling Control.Apply
+[32 of 60] Compiling Data.Monoid.Generic
+[31 of 60] Compiling Data.Bounded.Generic
+[33 of 60] Compiling Control.Applicative
+[34 of 60] Compiling Control.Bind
+[35 of 60] Compiling Control.Monad
+[36 of 60] Compiling Prelude
+[37 of 60] Compiling Data.Semigroup.Last
+[38 of 60] Compiling Data.Semigroup.First
+[39 of 60] Compiling Data.Ord.Generic
+[40 of 60] Compiling Data.Semigroup.Generic
+[41 of 60] Compiling Data.Show.Generic
+[42 of 60] Compiling Data.Monoid.Disj
+[43 of 60] Compiling Data.Ring.Generic
+[44 of 60] Compiling Data.Monoid.Conj
+[45 of 60] Compiling Data.Monoid.Additive
+[46 of 60] Compiling Data.Monoid.Dual
+[48 of 60] Compiling Data.Monoid.Multiplicative
+[47 of 60] Compiling Data.HeytingAlgebra.Generic
+[49 of 60] Compiling Effect
+[50 of 60] Compiling Data.Monoid.Endo
+[51 of 60] Compiling Data.Semiring.Generic
+[52 of 60] Compiling Data.Eq.Generic
+[54 of 60] Compiling Effect.Class
+[55 of 60] Compiling Effect.Uncurried
+[53 of 60] Compiling Effect.Ref
+[56 of 60] Compiling Effect.Unsafe
+[57 of 60] Compiling Effect.Console
+[58 of 60] Compiling Test.Assert
+[59 of 60] Compiling Effect.Class.Console
+[60 of 60] Compiling Test.Main
+           Src   Lib   All
+Warnings     0     0     0
+Errors       0     0     0
+
+✓ Build succeeded.
+
+=== Generating Go code with gopurs ===
+=== Compiling and running Go test binary ===
+=== Running tests ===
+Testing forE
+Testing foreachE
+Testing whileE
+panic: interface conversion: interface {} is gopurs_runtime.Value, not bool
+
+goroutine 1 [running]:
+gopurs/output/Effect.WhileE(...)
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:23
+gopurs/output/Effect.init.func6({0x10?, 0x104d2d6c0?, 0x5ce671b42580?}, {0x104b86e08?, 0x5ce671b7a738?, 0x104c3a1c8?}, {0x5ce671b7a728?, 0x104be163c?, 0x38?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:114 +0x78
+gopurs/output/gopurs_runtime.Apply2.func1({0x600b7a728?, 0x104e2b4e0?, 0x5ce671abe400?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:487 +0x4c
+gopurs/output/gopurs_runtime.Apply({0x5ce671b7a778, 0x0, 0x0}, {0x104c2ed20?, 0x1f0000000000040?, 0x5ce671abe400?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:445 +0x60
+gopurs/output/Effect.init.func1.1({0x0?, 0x0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:48 +0x64
+gopurs/output/Effect.BindE(0x104e1c108?, 0x5ce671ade818, {0x0?, 0x5ce671b42600?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:10 +0x30
+gopurs/output/Effect.init.func1({0x10?, 0x104d2d6c0?, 0x5ce671b42600?}, {0x0?, 0x5ce671b7a908?, 0x5ce671b565a0?}, {0x104e1c108?, 0x20?, 0x5ce671abe3f0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:57 +0x68
+gopurs/output/gopurs_runtime.Apply2.func1({0x20?, 0x104d33700?, 0x5ce671abe3f0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:487 +0x4c
+gopurs/output/gopurs_runtime.Apply({0x5ce671b7a978, 0x0, 0x0}, {0x104d41e60?, 0x5ce671aba240?, 0x5ce671abe3f0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:445 +0x60
+gopurs/output/Effect.init.func1.2.1({0x0?, 0x0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:53 +0x64
+gopurs/output/Effect.BindE(0x5ce671b7aa28?, 0x5ce671b7a9e8, {0x104d28c40?, 0x6?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:11 +0x50
+gopurs/output/Effect.init.func1({0x10?, 0x104d2d6c0?, 0x5ce671b56520?}, {0x104c424f9?, 0x5ce671b7aad8?, 0x104d4c958?}, {0x104e1c108?, 0x20?, 0x5ce671abe3c0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:57 +0x68
+gopurs/output/gopurs_runtime.Apply2.func1({0x20?, 0x104d33700?, 0x5ce671abe3c0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:487 +0x4c
+gopurs/output/gopurs_runtime.Apply({0x5ce671b7ab48, 0x0, 0x0}, {0x104d41e60?, 0x5ce671aba228?, 0x5ce671abe3c0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:445 +0x60
+gopurs/output/Effect.init.func1.2.1({0x0?, 0x0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:53 +0x64
+gopurs/output/Effect.BindE(0x5ce671b7ab01?, 0x5ce671b7abb8, {0x5ce671b7abd8?, 0x104c40dc4?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:11 +0x50
+gopurs/output/Effect.init.func1({0x10?, 0x104d2d6c0?, 0x5ce671b4e2a0?}, {0x104e282e0?, 0x5ce671b7aca8?, 0x104d4c950?}, {0x104e1c108?, 0x20?, 0x5ce671abe380?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:57 +0x68
+gopurs/output/gopurs_runtime.Apply2.func1({0x20?, 0x104d33700?, 0x5ce671abe380?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:487 +0x4c
+gopurs/output/gopurs_runtime.Apply({0x5ce671b7ad18, 0x0, 0x0}, {0x104d41e60?, 0x5ce671aba210?, 0x5ce671abe380?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:445 +0x60
+gopurs/output/Effect.init.func1.2.1({0x0?, 0x0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:53 +0x64
+gopurs/output/Effect.BindE(0x28?, 0x5ce671b7ad88, {0x300000001?, 0x104e282e0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:11 +0x50
+gopurs/output/Effect.init.func1({0x10?, 0x104d2d6c0?, 0x5ce671b4e270?}, {0x5ce671b4e270?, 0x5ce671b7ae78?, 0x104d4c948?}, {0x104e1c108?, 0x20?, 0x5ce671abe340?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:57 +0x68
+gopurs/output/gopurs_runtime.Apply2.func1({0x20?, 0x104d33700?, 0x5ce671abe340?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:487 +0x4c
+gopurs/output/gopurs_runtime.Apply({0x5ce671b7aee8, 0x0, 0x0}, {0x104d41e60?, 0x5ce671aba1f8?, 0x5ce671abe340?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:445 +0x60
+gopurs/output/Effect.init.func1.2.1({0x0?, 0x0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:53 +0x64
+gopurs/output/Effect.BindE(0x0?, 0x5ce671b7af58, {0x5ce671b7af78?, 0x104c40b34?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:11 +0x50
+gopurs/output/Effect.init.func1({0x10?, 0x104d2d6c0?, 0x5ce671b564a0?}, {0x104e282e0?, 0x5ce671b7b048?, 0x104d4c940?}, {0x104e1c108?, 0x20?, 0x5ce671abe320?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:57 +0x68
+gopurs/output/gopurs_runtime.Apply2.func1({0x20?, 0x104d33700?, 0x5ce671abe320?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:487 +0x4c
+gopurs/output/gopurs_runtime.Apply({0x5ce671b7b0b8, 0x0, 0x0}, {0x104d41e60?, 0x5ce671aba1e0?, 0x5ce671abe320?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:445 +0x60
+gopurs/output/Effect.init.func1.2.1({0x0?, 0x0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:53 +0x64
+gopurs/output/Effect.BindE(0x0?, 0x5ce671b7b128, {0x5ce671b563a0?, 0x104d4cf10?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:11 +0x50
+gopurs/output/Effect.init.func1({0x10?, 0x104d2d6c0?, 0x5ce671b42340?}, {0x0?, 0x5ce671b7b218?, 0x5ce671b563a0?}, {0x104e1c108?, 0x20?, 0x5ce671abe290?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:57 +0x68
+gopurs/output/gopurs_runtime.Apply2.func1({0x20?, 0x104d33700?, 0x5ce671abe290?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:487 +0x4c
+gopurs/output/gopurs_runtime.Apply({0x5ce671b7b288, 0x0, 0x0}, {0x104d41e60?, 0x5ce671aba120?, 0x5ce671abe290?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:445 +0x60
+gopurs/output/Effect.init.func1.2.1({0x0?, 0x0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:53 +0x64
+gopurs/output/Effect.BindE(0x5ce671b7b338?, 0x5ce671b7b2f8, {0x104d28c40?, 0x6?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:11 +0x50
+gopurs/output/Effect.init.func1({0x10?, 0x104d2d6c0?, 0x5ce671b56320?}, {0x104c424f9?, 0x5ce671b7b3e8?, 0x104d4c938?}, {0x104e1c108?, 0x20?, 0x5ce671abe260?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:57 +0x68
+gopurs/output/gopurs_runtime.Apply2.func1({0x20?, 0x104d33700?, 0x5ce671abe260?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:487 +0x4c
+gopurs/output/gopurs_runtime.Apply({0x5ce671b7b458, 0x0, 0x0}, {0x104d41e60?, 0x5ce671aba108?, 0x5ce671abe260?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:445 +0x60
+gopurs/output/Effect.init.func1.2.1({0x0?, 0x0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:53 +0x64
+gopurs/output/Effect.BindE(0x5ce671b7b401?, 0x5ce671b7b4c8, {0x5ce671b7b4e8?, 0x104c407a4?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:11 +0x50
+gopurs/output/Effect.init.func1({0x10?, 0x104d2d6c0?, 0x5ce671b4e210?}, {0x104e282e0?, 0x5ce671b7b5b8?, 0x104d4c930?}, {0x104e1c108?, 0x20?, 0x5ce671abe220?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:57 +0x68
+gopurs/output/gopurs_runtime.Apply2.func1({0x20?, 0x104d33700?, 0x5ce671abe220?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:487 +0x4c
+gopurs/output/gopurs_runtime.Apply({0x5ce671b7b628, 0x0, 0x0}, {0x104d41e60?, 0x5ce671aba0f0?, 0x5ce671abe220?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:445 +0x60
+gopurs/output/Effect.init.func1.2.1({0x0?, 0x0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:53 +0x64
+gopurs/output/Effect.BindE(0x28?, 0x5ce671b7b698, {0x5ce671b48601?, 0x1000104be163c?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:11 +0x50
+gopurs/output/Effect.init.func1({0x10?, 0x104d2d6c0?, 0x5ce671b4e1e0?}, {0x5ce671b4e1e0?, 0x5ce671b48788?, 0x104d4c928?}, {0x104e1c108?, 0x20?, 0x5ce671abe1e0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:57 +0x68
+gopurs/output/gopurs_runtime.Apply2.func1({0x20?, 0x104d33700?, 0x5ce671abe1e0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:487 +0x4c
+gopurs/output/gopurs_runtime.Apply({0x5ce671b487f8, 0x0, 0x0}, {0x104d41e60?, 0x5ce671aba0d8?, 0x5ce671abe1e0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:445 +0x60
+gopurs/output/Effect.init.func1.2.1({0x0?, 0x0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:53 +0x64
+gopurs/output/Effect.BindE(0x0?, 0x5ce671b48868, {0x5ce671b48888?, 0x104c40514?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:11 +0x50
+gopurs/output/Effect.init.func1({0x10?, 0x104d2d6c0?, 0x5ce671b562a0?}, {0x104e282e0?, 0x5ce671b48958?, 0x104d4c920?}, {0x104e1c108?, 0x20?, 0x5ce671abe1b0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:57 +0x68
+gopurs/output/gopurs_runtime.Apply2.func1({0x20?, 0x104d33700?, 0x5ce671abe1b0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:487 +0x4c
+gopurs/output/gopurs_runtime.Apply({0x5ce671b489c8, 0x0, 0x0}, {0x104d41e60?, 0x5ce671aba0c0?, 0x5ce671abe1b0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:445 +0x60
+gopurs/output/Effect.init.func1.2.1({0x0?, 0x0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:53 +0x64
+gopurs/output/Effect.BindE(0x0?, 0x5ce671b48a38, {0x0?, 0x5ce671b52120?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:11 +0x50
+gopurs/output/Effect.init.func1({0x10?, 0x104d2d6c0?, 0x5ce671b52120?}, {0x1?, 0x5ce671b48b28?, 0x5ce671b56120?}, {0x104e1c108?, 0x20?, 0x5ce671abe0e0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:57 +0x68
+gopurs/output/gopurs_runtime.Apply2.func1({0x20?, 0x104d33700?, 0x5ce671abe0e0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:487 +0x4c
+gopurs/output/gopurs_runtime.Apply({0x5ce671b48b98, 0x0, 0x0}, {0x104d41e60?, 0x5ce671aba030?, 0x5ce671abe0e0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:445 +0x60
+gopurs/output/Effect.init.func1.2.1({0x0?, 0x0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:53 +0x64
+gopurs/output/Effect.BindE(0x5ce671b48c48?, 0x5ce671b48c08, {0x104d28c40?, 0x6?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:11 +0x50
+gopurs/output/Effect.init.func1({0x10?, 0x104d2d6c0?, 0x5ce671b560a0?}, {0x104c424f9?, 0x5ce671b48cf8?, 0x104d4c918?}, {0x104e1c108?, 0x20?, 0x5ce671abe0b0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:57 +0x68
+gopurs/output/gopurs_runtime.Apply2.func1({0x20?, 0x104d33700?, 0x5ce671abe0b0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:487 +0x4c
+gopurs/output/gopurs_runtime.Apply({0x5ce671b48d68, 0x0, 0x0}, {0x104d41e60?, 0x5ce671aba018?, 0x5ce671abe0b0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:445 +0x60
+gopurs/output/Effect.init.func1.2.1({0x0?, 0x0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:53 +0x64
+gopurs/output/Effect.BindE(0x0?, 0x5ce671b48dd8, {0x0?, 0x5ce671b4e180?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:11 +0x50
+gopurs/output/Effect.init.func1({0x2?, 0x0?, 0x5ce671b4e180?}, {0x104bece98?, 0x104d4cfc0?, 0x104d4c910?}, {0x5ce671b48ea8?, 0x104c40150?, 0x0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Effect/Effect_ffi.go:57 +0x68
+gopurs/output/gopurs_runtime.Apply2.func1({0x104becee0?, 0x104d86a2c?, 0x0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:487 +0x4c
+gopurs/output/gopurs_runtime.Apply({0x104c425dd, 0x5, 0x0}, {0x0?, 0x0?, 0x0?})
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/gopurs_runtime/runtime.go:445 +0x60
+main.main()
+	/Users/0x1/Documents/htdocs/gopurs-effect/output/Test.Main/main/main.go:18 +0xb0

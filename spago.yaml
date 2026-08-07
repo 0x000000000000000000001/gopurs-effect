@@ -2,3 +2,27 @@ package:
   name: effect
   dependencies:
     - prelude
+
+  test:
+    main: Test.Main
+    dependencies:
+      - assert
+      - console
+      - refs
+
+workspace:
+  packageSet:
+    registry: 77.7.0
+  extraPackages:
+    assert:
+      path: "../gopurs-assert"
+    console:
+      path: "../gopurs-console"
+    refs:
+      path: "../gopurs-refs"
+    prelude:
+      path: "../gopurs-prelude"
+    safe-coerce:
+      path: "../gopurs-safe-coerce"
+    partial:
+      path: "../gopurs-partial"
