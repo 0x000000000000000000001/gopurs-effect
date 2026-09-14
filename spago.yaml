@@ -22,7 +22,3 @@ workspace:
       path: "../gopurs-refs"
     prelude:
       path: "../gopurs-prelude"
-    safe-coerce:
-      path: "../gopurs-safe-coerce"
-    partial:
-      path: "../gopurs-partial"

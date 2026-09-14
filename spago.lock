@@ -671,17 +671,11 @@
       "console": {
         "path": "../gopurs-console"
       },
-      "partial": {
-        "path": "../gopurs-partial"
-      },
       "prelude": {
         "path": "../gopurs-prelude"
       },
       "refs": {
         "path": "../gopurs-refs"
-      },
-      "safe-coerce": {
-        "path": "../gopurs-safe-coerce"
       }
     }
   },
